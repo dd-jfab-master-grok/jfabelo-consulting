@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>J. Fabelo Consulting</title>
+  <meta name="description" content="J. Fabelo Consulting helps companies with operations, recruiting, SEO, and AI integrations.">
+  <style>
+    :root {
+      --navy: #142f43;
+      --gold: #f7a91c;
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --paper: #ffffff;
+      --band: #f5f5f7;
+      --line: rgba(20, 47, 67, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.47;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.25rem;
+      padding: 0 1.75rem;
+      background: var(--navy);
+    }
+
+    .site-header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: var(--gold);
+      pointer-events: none;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 13.5rem;
+      height: 4.25rem;
+      margin-left: -0.35rem;
+      overflow: hidden;
+    }
+
+    .brand img {
+      flex: none;
+      width: auto;
+      max-width: none;
+      height: 12.6rem;
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.875rem;
+      text-decoration: none;
+    }
+
+    .nav-link:hover { color: #fff; }
+
+    .nav-link:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--navy);
+      outline-offset: 3px;
+    }
+
+    .hero,
+    .service,
+    .start,
+    .contact {
+      padding: 7.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero {
+      padding-top: 8.5rem;
+      padding-bottom: 8.5rem;
+      background: var(--paper);
+    }
+
+    h1, h2 {
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      color: var(--ink);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7.4vw, 5.75rem);
+      max-width: 12ch;
+      margin-inline: auto;
+    }
+
+    .lede,
+    .service p,
+    .start p,
+    .form-lead {
+      margin: 1.35rem auto 0;
+      max-width: 34rem;
+      color: var(--muted);
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      line-height: 1.4;
+    }
+
+    .service p,
+    .start p,
+    .form-lead {
+      font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+      max-width: 28rem;
+    }
+
+    .service h2,
+    .start h2 {
+      font-size: clamp(2.6rem, 6vw, 4.75rem);
+    }
+
+    .service:nth-child(even) { background: var(--band); }
+    .service:nth-child(odd) { background: var(--paper); }
+
+    .includes {
+      list-style: none;
+      margin: 3.25rem auto 0;
+      padding: 0;
+      max-width: 32rem;
+    }
+
+    .includes li {
+      margin: 0;
+      padding: 1.15rem 0.25rem;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+      font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.35;
+    }
+
+    .includes li:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .start { background: var(--band); }
+
+    .contact {
+      background: var(--paper);
+      padding-bottom: 8rem;
+    }
+
+    .contact h2 {
+      font-size: clamp(2.6rem, 6vw, 4.25rem);
+    }
+
+    form {
+      width: min(32rem, 100%);
+      margin: 3.25rem auto 0;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin: 0 0 1.65rem;
+      color: var(--ink);
+      font-size: 0.8125rem;
+      letter-spacing: 0.01em;
+    }
+
+    .opt {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    input, textarea {
+      display: block;
+      width: 100%;
+      margin-top: 0.4rem;
+      padding: 0.7rem 0;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
+      color: var(--ink);
+      font: inherit;
+      font-size: 1.0625rem;
+    }
+
+    textarea {
+      min-height: 7.5rem;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 0.4rem;
+      padding: 0.72rem 1.45rem;
+      border: 0;
+      border-radius: 980px;
+      background: var(--gold);
+      color: var(--navy);
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover { filter: brightness(1.03); }
+
+    #form-note {
+      margin: 1.25rem 0 0;
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    footer {
+      padding: 2.75rem 1.5rem 3.25rem;
+      border-top: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.8125rem;
+    }
+
+    footer p { margin: 0.2rem 0; }
+
+    @media (max-width: 700px) {
+      .site-header {
+        height: 3.75rem;
+        padding: 0 1rem;
+      }
+
+      .brand {
+        width: 10.75rem;
+        height: 3.75rem;
+      }
+
+      .brand img { height: 10.6rem; }
+
+      .hero,
+      .service,
+      .start,
+      .contact {
+        padding: 4.75rem 1.25rem;
+      }
+
+      .hero { padding-top: 5.25rem; }
+
+      .includes { margin-top: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="J. Fabelo Consulting, home">
+      <img src="logo.png" alt="J. Fabelo Consulting, LLC">
+    </a>
+    <a class="nav-link" href="#contact">Contact</a>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <h1>Improve efficiency with technology.</h1>
+      <p class="lede">Operations, recruiting, SEO, and AI integrations. Increase profitability and reduce expenses.</p>
+    </section>
+    <section class="service">
+      <h2>Operations</h2>
+      <p>Tighten how the company runs so the same work costs less.</p>
+      <ul class="includes">
+        <li>Walk a job from the first request to the finished work.</li>
+        <li>Note the handoffs, the rework, and the tools people wait on.</li>
+        <li>Leave a simpler process, with an owner for each step.</li>
+      </ul>
+    </section>
+    <section class="service">
+      <h2>Recruiting</h2>
+      <p>Support hiring so it takes less time and expense.</p>
+      <ul class="includes">
+        <li>Define the role, the must-haves, and where to look.</li>
+        <li>Set the screen, the interviews, and who decides.</li>
+        <li>Keep candidates moving so an open role does not stall.</li>
+      </ul>
+    </section>
+    <section class="service">
+      <h2>SEO</h2>
+      <p>Improve search visibility so the company is easier to find.</p>
+      <ul class="includes">
+        <li>See which searches should reach the site, and which pages answer them.</li>
+        <li>Fix titles, page structure, and copy that misses those searches.</li>
+        <li>Make the site straightforward for people and for search engines.</li>
+      </ul>
+    </section>
+    <section class="service">
+      <h2>AI integrations</h2>
+      <p>Add AI where it improves efficiency, profit, or cost.</p>
+      <ul class="includes">
+        <li>Find the repeated work a person still does by hand.</li>
+        <li>Connect a tool to the systems the company already uses.</li>
+        <li>Decide what stays with a person, and what the tool can take.</li>
+      </ul>
+    </section>
+    <section class="start">
+      <h2>How it starts</h2>
+      <p>A short look before any longer work.</p>
+      <ul class="includes">
+        <li>A conversation about the company and what you want changed.</li>
+        <li>A look at where time and money leak.</li>
+        <li>A focused plan for what to do first.</li>
+      </ul>
+    </section>
+    <section class="contact" id="contact">
+      <!-- Preview only. This form does not send mail or post anywhere. -->
+      <h2>Contact</h2>
+      <p class="form-lead">Send a note about the company and what you want help with.</p>
+      <form id="contact-form" action="#" method="post" novalidate>
+        <label>Name
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label>Email
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label>Company <span class="opt">(optional)</span>
+          <input type="text" name="company" autocomplete="organization">
+        </label>
+        <label>Message
+          <textarea name="message" required></textarea>
+        </label>
+        <button type="submit">Send</button>
+        <p id="form-note" hidden>This preview form is not connected yet.</p>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>J. Fabelo Consulting, LLC</p>
+    <p>jfabeloconsulting.com</p>
+  </footer>
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      document.getElementById("form-note").hidden = false;
+    });
+  </script>
+</body>
+</html>
